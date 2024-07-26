@@ -1,3 +1,4 @@
+import 'package:chatting_app/Auth/auth_gate.dart';
 import 'package:chatting_app/Auth/login_or_register.dart';
 import 'package:chatting_app/theme/light_mode.dart';
 import 'package:flutter/material.dart';
@@ -7,14 +8,16 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    print("Firebase initialized successfully");
+    await Firebase.initializeApp();
   } catch (e) {
-    print("Error initializing Firebase: $e");
+    if (e is FirebaseException && e.code == 'duplicate-app') {
+      // Firebase already initialized, use the existing instance
+    } else {
+      // Handle other errors
+      print('Error initializing Firebase: $e');
+    }
   }
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginOrRegister(),
+      home: const AuthGate(),
       theme: lightMode,
     );
   }
