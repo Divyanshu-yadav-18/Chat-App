@@ -1,9 +1,7 @@
 import 'package:chatting_app/Auth/auth_gate.dart';
-import 'package:chatting_app/Auth/login_or_register.dart';
 import 'package:chatting_app/theme/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +15,7 @@ void main() async {
       print('Error initializing Firebase: $e');
     }
   }
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
