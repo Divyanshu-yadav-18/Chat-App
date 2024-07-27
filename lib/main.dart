@@ -10,9 +10,6 @@ void main() async {
   } catch (e) {
     if (e is FirebaseException && e.code == 'duplicate-app') {
       // Firebase already initialized, use the existing instance
-    } else {
-      // Handle other errors
-      print('Error initializing Firebase: $e');
     }
   }
   runApp(const MyApp());

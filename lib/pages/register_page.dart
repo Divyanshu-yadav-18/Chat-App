@@ -13,11 +13,10 @@ class RegisterPage extends StatelessWidget {
   RegisterPage({super.key, required this.onTap});
 
   void register(BuildContext context) {
-    final _auth = AuthService();
+    final auth = AuthService();
     if (_pwController == _cpwController) {
       try {
-        _auth.signUpWithEmailPassword(
-            _emailContriller.text, _pwController.text);
+        auth.signUpWithEmailPassword(_emailContriller.text, _pwController.text);
       } catch (e) {
         showDialog(
           context: context,
