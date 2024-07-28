@@ -1,4 +1,4 @@
-import 'package:chatting_app/Auth/auth_gate.dart';
+import 'package:chatting_app/Services/Auth/auth_gate.dart';
 import 'package:chatting_app/theme/light_mode.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';

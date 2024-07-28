@@ -1,4 +1,4 @@
-import 'package:chatting_app/Auth/auth_service.dart';
+import 'package:chatting_app/Services/Auth/auth_service.dart';
 import 'package:chatting_app/Components/my_button.dart';
 import 'package:chatting_app/Components/mytextfield.dart';
 import 'package:flutter/material.dart';
